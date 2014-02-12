@@ -1,0 +1,214 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ExtMaster.master.cs"
+    Inherits="ExtNetApplication.ExtForms.ExtMaster" %>
+
+<%@ Register Src="../UserControl/LeftMenu.ascx" TagName="LeftMenu" TagPrefix="uc1" %>
+<%@ Register Src="../UserControl/LayoutBody.ascx" TagName="LayoutBody" TagPrefix="uc2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .float-left
+        {
+            float: left;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        var filterTree = function (tf, e) {
+
+            var tree = App.TreePanel1,
+                text = tf.getRawValue();
+
+            tree.clearFilter();
+
+            if (Ext.isEmpty(text, false)) {
+                return;
+            }
+
+            if (e.getKey() === Ext.EventObject.ESC) {
+                clearFilter();
+            } else {
+                var re = new RegExp(".*" + text + ".*", "i");
+
+                tree.filterBy(function (node) {
+                    return re.test(node.data.text);
+                });
+            }
+        };
+
+        var clearFilter = function () {
+
+            var field = App.TriggerField1,
+                tree = App.TreePanel1;
+
+            field.setValue("");
+            tree.clearFilter(true);
+            tree.getView().focus();
+        };
+
+        //For load pages in centeral panel
+        var loadPage = function (tabPanel, record) {
+            var tab = tabPanel.getComponent(record.getId());
+
+            if (!tab) {
+                tab = tabPanel.add({
+                    id: record.getId(),
+                    title: record.data.text,
+                    closable: true,
+                    loader: {
+                        url: record.data.href,
+                        renderer: "frame",
+                        loadMask: {
+                            showMask: true,
+                            msg: "Loading " + record.data.href + "..."
+                        }
+                    },
+                    autoScroll: true
+                });
+            }
+
+            tabPanel.setActiveTab(tab);
+        };
+    </script>
+</head>
+<body>
+    <div class="float-left">
+        <ext:Toolbar ID="Toolbar3" runat="server">
+            <Items>
+                <ext:TabStrip ID="TabStrip4" runat="server">
+                    <Items>
+                        <ext:Tab Text="System" ActionItemID="elm1" />
+                        <ext:Tab Text="Services" ActionItemID="elm2" />
+                    </Items>
+                </ext:TabStrip>
+                <ext:ToolbarFill />
+                <ext:Button ID="Button4" runat="server" Text="New alerts (4)" Icon="Error">
+                    <Listeners>
+                    </Listeners>
+                </ext:Button>
+                <ext:ToolbarSeparator />
+                <ext:SplitButton ID="SplitButton1" runat="server" Text="Jatinder" IconCls="add16"
+                    Icon="User">
+                    <Menu>
+                        <ext:Menu ID="Menu1" runat="server">
+                            <Items>
+                                <ext:MenuItem ID="MenuItem1" runat="server" Text="Account" />
+                                <ext:MenuItem ID="MenuItem2" runat="server" Text="Security" />
+                                <ext:MenuItem ID="MenuItem3" runat="server" Text="Timeline" />
+                                <ext:MenuItem ID="MenuItem4" runat="server" Text="Logout" />
+                            </Items>
+                        </ext:Menu>
+                    </Menu>
+                </ext:SplitButton>
+            </Items>
+        </ext:Toolbar>
+        <ext:Toolbar ID="Toolbar2" runat="server">
+            <Items>
+                <ext:Button ID="Button2" runat="server" Icon="Table">
+                    <ToolTips>
+                        <ext:ToolTip ID="ToolTip1" runat="server" Html="<b>Quick Tips</b><br/>Icon only button with tooltip" />
+                    </ToolTips>
+                </ext:Button>
+                <%--<ext:ToolbarFill />--%>
+                <ext:ToolbarSeparator />
+                <ext:Button ID="Button1" runat="server" Icon="Application">
+                </ext:Button>
+                <ext:ToolbarSeparator />
+                <ext:Button ID="Button3" runat="server" Icon="Box">
+                </ext:Button>
+            </Items>
+        </ext:Toolbar>
+    </div>
+    <div id="elm1">
+        <form id="form1" runat="server">
+        <div class="float-left">
+            <ext:ResourceManager ID="ResourceManager1" runat="server" />
+            <div id="divMiddle">
+                <%-- <uc2:LayoutBody ID="LayoutBody1" runat="server" />--%>
+                <ext:Viewport ID="Viewport1" runat="server" Layout="BorderLayout">
+                    <Items>
+                        <%--  <ext:TabPanel ID="TabPanel1" runat="server" Region="North">
+                            <Items>
+                                <ext:Panel ID="Panel4" runat="server" Title="System" Border="false" BodyPadding="0">
+                                    <Items>
+                                        <ext:Toolbar ID="Toolbar2" runat="server">
+                                            <Items>
+                                                <ext:Button ID="Button2" runat="server" Icon="Table">
+                                                    <ToolTips>
+                                                        <ext:ToolTip ID="ToolTip1" runat="server" Html="<b>Quick Tips</b><br/>Icon only button with tooltip" />
+                                                    </ToolTips>
+                                                </ext:Button>
+                                                <ext:ToolbarSeparator />
+                                                <ext:Button ID="Button1" runat="server" Icon="Box">
+                                                </ext:Button>
+                                                <ext:ToolbarSeparator />
+                                                <ext:Button ID="Button3" runat="server" Icon="Box">
+                                                </ext:Button>
+                                            </Items>
+                                        </ext:Toolbar>
+                                    </Items>
+                                </ext:Panel>
+                            </Items>
+                        </ext:TabPanel>--%>
+                        <%--<ext:TabPanel ID="TabPanel2" runat="server" Region="North" Title="Save | Edit">
+                        <Listeners>
+                        </Listeners>
+                    </ext:TabPanel>--%>
+                        <ext:Panel ID="Panel2" runat="server" Title="Jobs" Region="West" Layout="AccordionLayout"
+                            Width="225" MinWidth="225" MaxWidth="400" Split="true" Collapsible="true">
+                            <Items>
+                                <ext:Panel ID="Panel3" runat="server" Title="Jobs" Border="false" BodyPadding="6"
+                                    Icon="FolderGo">
+                                    <Items>
+                                        <ext:TreePanel ID="TreePanel1" runat="server" Height="300" Width="250" UseArrows="true">
+                                            <TopBar>
+                                                <ext:Toolbar ID="Toolbar1" Layout="AutoLayout" runat="server">
+                                                    <Items>
+                                                        <ext:ToolbarTextItem ID="ToolbarTextItem1" runat="server" Text="Filter:" />
+                                                        <ext:ToolbarSpacer />
+                                                        <ext:TriggerField ID="TriggerField1" runat="server" EnableKeyEvents="true">
+                                                            <Triggers>
+                                                                <ext:FieldTrigger Icon="Clear" />
+                                                            </Triggers>
+                                                            <Listeners>
+                                                                <KeyUp Fn="filterTree" Buffer="250" />
+                                                                <TriggerClick Handler="clearFilter();" />
+                                                            </Listeners>
+                                                        </ext:TriggerField>
+                                                    </Items>
+                                                </ext:Toolbar>
+                                            </TopBar>
+                                            <Listeners>
+                                                <ItemClick Handler="if (record.data.href) { e.stopEvent(); loadPage(#{Pages}, record); }" />
+                                            </Listeners>
+                                        </ext:TreePanel>
+                                    </Items>
+                                </ext:Panel>
+                                <ext:Panel ID="Panel1" runat="server" Title="Dashboard" Border="false" BodyPadding="6"
+                                    Icon="Table" Html="West" />
+                                <ext:Panel ID="Panel12" runat="server" Title="Jobs" Border="false" BodyPadding="6"
+                                    Icon="FolderGo" Html="West" />
+                                <ext:Panel ID="Panel13" runat="server" Title="Infrastructure" Border="false" BodyPadding="6"
+                                    Icon="FolderGo" Html="West" />
+                                <ext:Panel ID="Panel14" runat="server" Title="Organizations" Border="false" BodyPadding="6"
+                                    Icon="FolderGo" Html="West" />
+                                <ext:Panel ID="Panel15" runat="server" Title="Settings and options" Border="false"
+                                    BodyPadding="6" Icon="FolderGo" Html="West" />
+                                <ext:Panel ID="Panel16" runat="server" Title="Security" Border="false" BodyPadding="6"
+                                    Icon="FolderGo" Html="West" />
+                            </Items>
+                        </ext:Panel>
+                        <ext:TabPanel ID="Pages" runat="server" Region="Center" />
+                    </Items>
+                </ext:Viewport>
+            </div>
+        </div>
+        </form>
+    </div>
+    <div id="elm2">
+        test</div>
+</body>
+</html>

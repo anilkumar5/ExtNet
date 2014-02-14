@@ -84,14 +84,18 @@
     <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
     <Content Include="App_Readme\Transformer.NET\README.txt" />
     <Content Include="Ext.NET.Default.aspx" />
+    <Content Include="ExtForms\Dashboard.aspx" />
     <Content Include="ExtForms\GridArrayWithPaging.aspx" />
+    <Content Include="ExtForms\JobsData.aspx" />
     <Content Include="ExtForms\PieChart.aspx" />
     <Content Include="ExtForms\TabPanel.aspx" />
     <Content Include="ExtForms\TreePanel.aspx" />
     <Content Include="ExtForms\ViewPort.aspx" />
     <Content Include="ExtForms\WebForm1.aspx" />
     <Content Include="ExtForms\WebForm2.aspx" />
+    <Content Include="Resources\DashboardSchema.xml" />
     <Content Include="Scripts\ext.js" />
+    <Content Include="Scripts\Master.js" />
     <Content Include="TestForms\OrigionalHeader.aspx" />
     <Content Include="TestForms\SearchFilter.aspx" />
     <Content Include="Styles\Site.css" />
@@ -156,6 +160,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ExtForms\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExtForms\ExtMaster.Master.cs">
       <DependentUpon>ExtMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -169,6 +179,12 @@
     </Compile>
     <Compile Include="ExtForms\GridArrayWithPaging.aspx.designer.cs">
       <DependentUpon>GridArrayWithPaging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\JobsData.aspx.cs">
+      <DependentUpon>JobsData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\JobsData.aspx.designer.cs">
+      <DependentUpon>JobsData.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExtForms\PieChart.aspx.cs">
       <DependentUpon>PieChart.aspx</DependentUpon>
@@ -301,7 +317,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1933</DevelopmentServerPort>
+          <DevelopmentServerPort>1625</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

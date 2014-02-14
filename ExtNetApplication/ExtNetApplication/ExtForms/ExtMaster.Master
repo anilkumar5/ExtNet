@@ -16,63 +16,7 @@
             width: 100%;
         }
     </style>
-    <script type="text/javascript">
-        var filterTree = function (tf, e) {
-
-            var tree = App.TreePanel1,
-                text = tf.getRawValue();
-
-            tree.clearFilter();
-
-            if (Ext.isEmpty(text, false)) {
-                return;
-            }
-
-            if (e.getKey() === Ext.EventObject.ESC) {
-                clearFilter();
-            } else {
-                var re = new RegExp(".*" + text + ".*", "i");
-
-                tree.filterBy(function (node) {
-                    return re.test(node.data.text);
-                });
-            }
-        };
-
-        var clearFilter = function () {
-
-            var field = App.TriggerField1,
-                tree = App.TreePanel1;
-
-            field.setValue("");
-            tree.clearFilter(true);
-            tree.getView().focus();
-        };
-
-        //For load pages in centeral panel
-        var loadPage = function (tabPanel, record) {
-            var tab = tabPanel.getComponent(record.getId());
-
-            if (!tab) {
-                tab = tabPanel.add({
-                    id: record.getId(),
-                    title: record.data.text,
-                    closable: true,
-                    loader: {
-                        url: record.data.href,
-                        renderer: "frame",
-                        loadMask: {
-                            showMask: true,
-                            msg: "Loading " + record.data.href + "..."
-                        }
-                    },
-                    autoScroll: true
-                });
-            }
-
-            tabPanel.setActiveTab(tab);
-        };
-    </script>
+    <script src="/Scripts/Master.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="float-left">
@@ -130,33 +74,6 @@
                 <%-- <uc2:LayoutBody ID="LayoutBody1" runat="server" />--%>
                 <ext:Viewport ID="Viewport1" runat="server" Layout="BorderLayout">
                     <Items>
-                        <%--  <ext:TabPanel ID="TabPanel1" runat="server" Region="North">
-                            <Items>
-                                <ext:Panel ID="Panel4" runat="server" Title="System" Border="false" BodyPadding="0">
-                                    <Items>
-                                        <ext:Toolbar ID="Toolbar2" runat="server">
-                                            <Items>
-                                                <ext:Button ID="Button2" runat="server" Icon="Table">
-                                                    <ToolTips>
-                                                        <ext:ToolTip ID="ToolTip1" runat="server" Html="<b>Quick Tips</b><br/>Icon only button with tooltip" />
-                                                    </ToolTips>
-                                                </ext:Button>
-                                                <ext:ToolbarSeparator />
-                                                <ext:Button ID="Button1" runat="server" Icon="Box">
-                                                </ext:Button>
-                                                <ext:ToolbarSeparator />
-                                                <ext:Button ID="Button3" runat="server" Icon="Box">
-                                                </ext:Button>
-                                            </Items>
-                                        </ext:Toolbar>
-                                    </Items>
-                                </ext:Panel>
-                            </Items>
-                        </ext:TabPanel>--%>
-                        <%--<ext:TabPanel ID="TabPanel2" runat="server" Region="North" Title="Save | Edit">
-                        <Listeners>
-                        </Listeners>
-                    </ext:TabPanel>--%>
                         <ext:Panel ID="Panel2" runat="server" Title="Jobs" Region="West" Layout="AccordionLayout"
                             Width="225" MinWidth="225" MaxWidth="400" Split="true" Collapsible="true">
                             <Items>
@@ -194,14 +111,43 @@
                                 <ext:Panel ID="Panel13" runat="server" Title="Infrastructure" Border="false" BodyPadding="6"
                                     Icon="FolderGo" Html="West" />
                                 <ext:Panel ID="Panel14" runat="server" Title="Organizations" Border="false" BodyPadding="6"
-                                    Icon="FolderGo" Html="West" />
+                                    Icon="FolderGo" Html="West">
+                                    <Items>
+                                        <ext:TreePanel runat="server" UseArrows="true">
+                                            <Root>
+                                                <ext:Node Text="Dashboard">
+                                                    <Children>
+                                                        <ext:Node Text="Organizations">
+                                                            <Children>
+                                                                <ext:Node Text="All" Href="~/ExtForms/Dashboard.aspx" />
+                                                                <ext:Node Text="Organization1" />
+                                                                <ext:Node Text="Organization2" />
+                                                            </Children>
+                                                        </ext:Node>
+                                                    </Children>
+                                                </ext:Node>
+                                            </Root>
+                                            <Listeners>
+                                                <ItemClick Handler="if (record.data.href) { e.stopEvent(); loadPage(#{Pages}, record); }" />
+                                            </Listeners>
+                                        </ext:TreePanel>
+                                    </Items>
+                                </ext:Panel>
                                 <ext:Panel ID="Panel15" runat="server" Title="Settings and options" Border="false"
                                     BodyPadding="6" Icon="FolderGo" Html="West" />
                                 <ext:Panel ID="Panel16" runat="server" Title="Security" Border="false" BodyPadding="6"
                                     Icon="FolderGo" Html="West" />
                             </Items>
                         </ext:Panel>
-                        <ext:TabPanel ID="Pages" runat="server" Region="Center" />
+                        <ext:TabPanel ID="Pages" runat="server" Region="Center" Icon="Server" Title="Job details" />
+                        <%--<ext:TabPanel ID="PagesJob" runat="server" Region="Center" Icon="Server" Title="Job details" />--%>
+                        <%-- <ext:TabStrip ID="tabStrip" runat="server" Region="Center" Icon="Server" Title="Job details">
+                            <Items>
+                                <ext:Tab Text="Summary" ActionItemID="elm1" />
+                                <ext:Tab Text="Virtual Machines" ActionItemID="elm2" />
+                                <ext:Tab Text="History" ActionItemID="elm3" />
+                            </Items>
+                        </ext:TabStrip>--%>
                     </Items>
                 </ext:Viewport>
             </div>

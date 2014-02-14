@@ -19,7 +19,7 @@
                     </ext:Node>
                     <ext:Node Text="button" Expanded="true">
                         <Children>
-                            <ext:Node Text="Button.js" Leaf="true" />
+                            <ext:Node Text="Button.js" Href="" Leaf="true" />
                             <ext:Node Text="Cycle.js" Leaf="true" />
                             <ext:Node Text="Split.js" Leaf="true" />
                         </Children>

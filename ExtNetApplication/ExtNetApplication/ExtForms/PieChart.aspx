@@ -32,55 +32,96 @@
             });
         };
     </script>
+    <style type="text/css">
+        div
+        {
+            border: none !important;
+            border-color: White !important;
+        }
+        h2
+        {
+            border-bottom: 2px solid;
+            width: 99%;
+        }
+    </style>
 </head>
 <body>
     <form id="Form1" runat="server">
     <ext:ResourceManager runat="server" />
-    <h1>
-        Pie Chart Example</h1>
-    <ext:Panel runat="server" Width="800" Height="600" Title="Semester Trends" Layout="FitLayout">
-        <TopBar>
-            <ext:Toolbar runat="server">
-                <Items>
-                    <ext:Button runat="server" Text="Reload Data" Icon="ArrowRefresh" OnDirectClick="ReloadData" />
-                    <ext:Button runat="server" Text="Donut" EnableToggle="true">
-                        <Listeners>
-                            <Toggle Handler="#{Chart1}.series.first().donut = pressed ? 35 : false;#{Chart1}.refresh();" />
-                        </Listeners>
-                    </ext:Button>
-                    <ext:Button runat="server" Text="Save Chart" Icon="Disk" Handler="saveChart" />
-                </Items>
-            </ext:Toolbar>
-        </TopBar>
-        <Items>
-            <ext:Chart ID="Chart1" runat="server" Animate="true" Shadow="true" InsetPadding="60"
-                Theme="Base:gradients">
-                <LegendConfig Position="Right" />
-                <Store>
-                    <ext:Store runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
-                        AutoDataBind="true">
-                        <Model>
-                            <ext:Model runat="server">
-                                <Fields>
-                                    <ext:ModelField Name="Name" />
-                                    <ext:ModelField Name="TotalProduction" />
-                                </Fields>
-                            </ext:Model>
-                        </Model>
-                    </ext:Store>
-                </Store>
-                <Series>
-                    <ext:PieSeries AngleField="TotalProduction" ShowInLegend="true" Donut="0" Highlight="true"
-                        HighlightSegmentMargin="20">
-                        <Label Field="Name" Display="Rotate" Contrast="true" Font="18px Arial" />
-                        <Tips TrackMouse="true" Width="140" Height="28" runat="server">
-                            <Renderer Fn="tipRenderer" />
-                        </Tips>
-                    </ext:PieSeries>
-                </Series>
-            </ext:Chart>
-        </Items>
-    </ext:Panel>
+    <div style="float: left">
+        <h2>
+            Pie Chart Example</h2>
+        <ext:Panel runat="server" Width="500" Height="300" Style="border-top: 1px solid;
+            float: left;" Layout="FitLayout">
+            <TopBar>
+                <ext:StatusBar runat="server" Text="test">
+                </ext:StatusBar>
+            </TopBar>
+            <Items>
+                <ext:Chart ID="Chart1" runat="server" Animate="true" Shadow="true" InsetPadding="60"
+                    Style="float: left;" Theme="Base:gradients">
+                    <LegendConfig Position="Bottom" BoxStroke="1" />
+                    <Store>
+                        <ext:Store runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                            AutoDataBind="true">
+                            <Model>
+                                <ext:Model runat="server">
+                                    <Fields>
+                                        <ext:ModelField Name="Name" />
+                                        <ext:ModelField Name="TotalProduction" />
+                                    </Fields>
+                                </ext:Model>
+                            </Model>
+                        </ext:Store>
+                    </Store>
+                    <Series>
+                        <ext:PieSeries AngleField="TotalProduction" ShowInLegend="true" Donut="0" Highlight="true"
+                            HighlightSegmentMargin="20">
+                            <Label Field="Name" Display="Rotate" Contrast="true" Font="18px Arial" />
+                            <Tips TrackMouse="true" Width="140" Height="28" runat="server">
+                                <Renderer Fn="tipRenderer" />
+                            </Tips>
+                        </ext:PieSeries>
+                    </Series>
+                </ext:Chart>
+            </Items>
+        </ext:Panel>
+    </div>
+    <div style="float: left">
+        <h2>
+            Pie Chart Example</h2>
+        <ext:Panel ID="Panel2" runat="server" Width="500" Height="300" Style="border: none"
+            Layout="FitLayout">
+            <Items>
+                <ext:Chart ID="Chart2" runat="server" Animate="true" Shadow="true" InsetPadding="60"
+                    Theme="Base:gradients">
+                    <LegendConfig Position="Bottom" />
+                    <Store>
+                        <ext:Store ID="Store1" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                            AutoDataBind="true">
+                            <Model>
+                                <ext:Model ID="Model1" runat="server">
+                                    <Fields>
+                                        <ext:ModelField Name="Name" />
+                                        <ext:ModelField Name="TotalProduction" />
+                                    </Fields>
+                                </ext:Model>
+                            </Model>
+                        </ext:Store>
+                    </Store>
+                    <Series>
+                        <ext:PieSeries AngleField="TotalProduction" ShowInLegend="true" Donut="0" Highlight="true"
+                            HighlightSegmentMargin="20">
+                            <Label Field="Name" Display="Rotate" Contrast="true" Font="18px Arial" />
+                            <Tips ID="Tips1" TrackMouse="true" Width="140" Height="28" runat="server">
+                                <Renderer Fn="tipRenderer" />
+                            </Tips>
+                        </ext:PieSeries>
+                    </Series>
+                </ext:Chart>
+            </Items>
+        </ext:Panel>
+    </div>
     </form>
 </body>
 </html>

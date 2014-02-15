@@ -18,14 +18,14 @@ namespace ExtNetApplication.Services
         {
             List<Products> listProducts = new List<Products>();
             Products products = null;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 products = new Products();
                 products.TotalProduction = 10;
                 products.Pending = 20;
                 products.InProgress = i;
                 products.Name = "Name" + i;
-                products.Data1 = 1 + i;
+                products.Data1 = 2 * i;
                 products.Data2 = i + 23;
                 listProducts.Add(products);
             }

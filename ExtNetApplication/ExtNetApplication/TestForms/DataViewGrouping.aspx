@@ -114,10 +114,7 @@
             <Refresh Handler="this.el.select('.item-wrap').addClsOnOver('x-view-over');" Delay="100" />
         </Listeners>
     </ext:DataView>
-
-
     <div class="divPanel">
-    <ext:Chart></ext:Chart>
     </div>
     </form>
 </body>

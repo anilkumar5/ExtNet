@@ -9,13 +9,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .float-left
-        {
-            float: left;
-            width: 100%;
-        }
-    </style>
+    <link href="/Styles/Master.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/Master.js" type="text/javascript"></script>
 </head>
 <body>

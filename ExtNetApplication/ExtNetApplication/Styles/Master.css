@@ -1,0 +1,82 @@
+﻿div.item-wrap
+{
+    float: left;
+    border: 1px solid transparent;
+    margin: 5px 25px 5px 25px;
+    width: 100px;
+    cursor: pointer;
+    height: 120px;
+    text-align: center;
+}
+
+div.item-wrap img
+{
+    margin: 5px 0px 0px 5px;
+    width: 61px;
+    height: 77px;
+}
+
+div.item-wrap h6
+{
+    font-size: 14px;
+    color: #3A4B5B;
+    font-family: tahoma,arial,san-serif;
+}
+
+div.x-view-over
+{
+    border: solid 1px silver;
+}
+
+#items-ct
+{
+    padding: 0px 30px 24px 30px;
+}
+
+#items-ct h2
+{
+    border-bottom: 2px solid #3A4B5B;
+    cursor: pointer;
+}
+
+#items-ct h2 div
+{
+    background: transparent url(resources/images/group-expand-sprite.gif) no-repeat 3px -47px;
+    padding: 4px 4px 4px 17px;
+    font-family: tahoma,arial,san-serif;
+    font-size: 12px;
+    color: #3A4B5B;
+}
+
+#items-ct .collapsed h2 div
+{
+    background-position: 3px 3px;
+}
+#items-ct dl
+{
+    margin-left: 2px;
+}
+#items-ct .collapsed dl
+{
+    display: none;
+}
+.group-header
+{
+    float: left;
+    width: 50%;
+}
+.float-left
+{
+    float: left;
+    width: 100%;
+}
+.col50
+{
+    float: left;
+    width: 50%;
+}
+.col100
+{
+    float: left;
+    width: 100%;
+}

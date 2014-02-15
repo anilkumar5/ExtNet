@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Folder1"  description="">
     <siteMapNode url="" title="Jobs"  description="">
-        <siteMapNode url="~/TestForms/OrigionalHeader.aspx" title="OrigionalHeader"  description="" />
-        <siteMapNode url="~/TestForms/SearchFilter.aspx" title="SearchTree"  description="" />
+      <siteMapNode url="~/TestForms/OrigionalHeader.aspx" title="OrigionalHeader"  description="" />
+      <siteMapNode url="~/TestForms/SearchFilter.aspx" title="SearchTree"  description="" />
+      <siteMapNode url="~/ExtForms/JobsData.aspx" title="Jobs"  description="" />
     </siteMapNode>
+    <siteMapNode url="" title="Jobs1"  description="">
+      <siteMapNode url="~/TestForms/OrigionalHdeader.aspx" title="OrigionalHeader"  description="" />
+      <siteMapNode url="~/TestForms/SearchFiltder.aspx" title="SearchTree"  description="" />
+      <siteMapNode url="~/ExtForms/JobsDatsa.aspx" title="Jobs"  description="" />
+    </siteMapNode>
+  </siteMapNode>
 </siteMap>

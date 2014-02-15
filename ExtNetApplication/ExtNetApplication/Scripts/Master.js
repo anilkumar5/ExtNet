@@ -54,3 +54,34 @@ var loadPage = function (tabPanel, record) {
 
     tabPanel.setActiveTab(tab);
 };
+
+var tipRenderer = function (storeItem, item) {
+    //calculate percentage.
+    var total = 0;
+
+    App.Chart1.getStore().each(function (rec) {
+        total += rec.get('TotalProduction');
+    });
+
+    this.setTitle(storeItem.get('Name') + ': ' + Math.round(storeItem.get('TotalProduction') / total * 100) + '%');
+};
+
+var saveChart = function (btn) {
+    Ext.MessageBox.confirm('Confirm Download', 'Would you like to download the chart as an image?', function (choice) {
+        if (choice == 'yes') {
+            btn.up('panel').down('chart').save({
+                type: 'image/png'
+            });
+        }
+    });
+};
+
+var template = '<span style="color:{0};">{1}</span>';
+
+var change = function (value) {
+    return Ext.String.format(template, (value > 0) ? "green" : "red", value);
+};
+
+var pctChange = function (value) {
+    return Ext.String.format(template, (value > 0) ? "green" : "red", value + "%");
+};

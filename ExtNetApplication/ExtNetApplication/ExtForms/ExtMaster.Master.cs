@@ -12,9 +12,31 @@ namespace ExtNetApplication.ExtForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SiteMapNode siteNode = SiteMap.RootNode;
-            Node root = this.CreateNode(siteNode);
-            TreePanel1.Root.Add(root);
+            if (Session["User"] != null)
+            {
+                SplitButton1.Text = Session["User"].ToString();
+
+                SiteMapNode siteNode = SiteMap.RootNode;
+                string title = siteNode.Title;
+                SiteMapNodeCollection childNodes = siteNode.ChildNodes;
+                foreach (SiteMapNode item in childNodes)
+                {
+                    if (item.Title == "Jobs")
+                    {
+                        Node root = this.CreateNode(item);
+                        TreePanel1.Root.Add(root);
+                    }
+                    else if (item.Title == "Dashboard")
+                    {
+                        Node root = this.CreateNode(item);
+                        TreePanel2.Root.Add(root);
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("/ExtForms/Login.aspx");
+            }
 
             //dynamic tree root
         }
@@ -94,6 +116,17 @@ namespace ExtNetApplication.ExtForms
             }
 
             return treeNode;
+        }
+        [DirectMethod]
+        protected void ClickMenu(object sender, EventArgs e)
+        {
+            Ext.Net.MenuItem menuButton = (Ext.Net.MenuItem)sender;
+            string menuItem = menuButton.Text;
+            if (menuItem == "Logout")
+            {
+                ExtNetApplication.Services.Account.Logout();
+                Response.Redirect("/ExtForms/Login.aspx");
+            }
         }
     }
 }

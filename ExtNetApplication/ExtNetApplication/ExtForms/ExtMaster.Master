@@ -1,8 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ExtMaster.master.cs"
     Inherits="ExtNetApplication.ExtForms.ExtMaster" %>
 
-<%@ Register Src="../UserControl/LeftMenu.ascx" TagName="LeftMenu" TagPrefix="uc1" %>
-<%@ Register Src="../UserControl/LayoutBody.ascx" TagName="LayoutBody" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -19,7 +17,8 @@
                 <ext:TabStrip ID="TabStrip4" runat="server">
                     <Items>
                         <ext:Tab Text="System" ActionItemID="elm1" />
-                        <ext:Tab Text="Services" ActionItemID="elm2" />
+                        <ext:Tab Text="Organization1" ActionItemID="elm2" />
+                        <ext:Tab Text="Organization2" ActionItemID="elm2" />
                     </Items>
                 </ext:TabStrip>
                 <ext:ToolbarFill />
@@ -28,16 +27,26 @@
                     </Listeners>
                 </ext:Button>
                 <ext:ToolbarSeparator />
-                <ext:SplitButton ID="SplitButton1" runat="server" Text="Jatinder" IconCls="add16"
-                    Icon="User">
+                <ext:SplitButton ID="SplitButton1" runat="server" IconCls="add16" Icon="User">
                     <Menu>
                         <ext:Menu ID="Menu1" runat="server">
                             <Items>
                                 <ext:MenuItem ID="MenuItem1" runat="server" Text="Account" />
                                 <ext:MenuItem ID="MenuItem2" runat="server" Text="Security" />
-                                <ext:MenuItem ID="MenuItem3" runat="server" Text="Timeline" />
-                                <ext:MenuItem ID="MenuItem4" runat="server" Text="Logout" />
+                                <ext:MenuItem ID="MenuItem3" runat="server" Text="Timeline">
+                                    <DirectEvents>
+                                        <Click OnEvent="ClickMenu" />
+                                    </DirectEvents>
+                                </ext:MenuItem>
+                                <ext:MenuItem ID="MenuItem4" runat="server" Text="Logout">
+                                    <DirectEvents>
+                                        <Click OnEvent="ClickMenu" />
+                                    </DirectEvents>
+                                </ext:MenuItem>
                             </Items>
+                            <%--<Listeners>
+                            <Click Handler="ClickMenu" />
+                            </Listeners>--%>
                         </ext:Menu>
                     </Menu>
                 </ext:SplitButton>
@@ -45,34 +54,59 @@
         </ext:Toolbar>
         <ext:Toolbar ID="Toolbar2" runat="server">
             <Items>
-                <ext:Button ID="Button2" runat="server" Icon="Table">
+                <ext:Button ID="Button2" runat="server" Icon="ApplicationSideTree">
                     <ToolTips>
                         <ext:ToolTip ID="ToolTip1" runat="server" Html="<b>Quick Tips</b><br/>Icon only button with tooltip" />
                     </ToolTips>
                 </ext:Button>
-                <%--<ext:ToolbarFill />--%>
                 <ext:ToolbarSeparator />
-                <ext:Button ID="Button1" runat="server" Icon="Application">
+                <ext:Button ID="Button1" runat="server" Icon="ApplicationSplit">
                 </ext:Button>
                 <ext:ToolbarSeparator />
-                <ext:Button ID="Button3" runat="server" Icon="Box">
+                <ext:Button ID="Button3" runat="server" Icon="ApplicationCascade">
                 </ext:Button>
             </Items>
         </ext:Toolbar>
     </div>
-    <div id="elm1">
+    <div id="elm1" style="float: left;">
         <form id="form1" runat="server">
         <div class="float-left">
             <ext:ResourceManager ID="ResourceManager1" runat="server" />
             <div id="divMiddle">
-                <%-- <uc2:LayoutBody ID="LayoutBody1" runat="server" />--%>
-                <ext:Viewport ID="Viewport1" runat="server" Layout="BorderLayout">
+                <ext:Viewport ID="Viewport1" runat="server" Layout="BorderLayout" Height="600">
                     <Items>
                         <ext:Panel ID="Panel2" runat="server" Title="Jobs" Region="West" Layout="AccordionLayout"
-                            Width="225" MinWidth="225" MaxWidth="400" Split="true" Collapsible="true">
+                            Split="true" Width="225" MinWidth="225" MaxHeight="550" MaxWidth="400">
                             <Items>
+                                <ext:Panel ID="Panel14" runat="server" Title="Dashboards" Border="false" BodyPadding="4"
+                                    Icon="Folder">
+                                    <Items>
+                                        <ext:TreePanel ID="TreePanel2" runat="server" Height="300" Width="250" UseArrows="true">
+                                            <TopBar>
+                                                <ext:Toolbar ID="Toolbar4" Layout="AutoLayout" runat="server">
+                                                    <Items>
+                                                        <ext:ToolbarTextItem ID="ToolbarTextItem2" runat="server" Text="Filter:" />
+                                                        <ext:ToolbarSpacer />
+                                                        <ext:TriggerField ID="TriggerField2" runat="server" EnableKeyEvents="true">
+                                                            <Triggers>
+                                                                <ext:FieldTrigger Icon="Clear" />
+                                                            </Triggers>
+                                                            <Listeners>
+                                                                <KeyUp Fn="filterTree2" Buffer="250" />
+                                                                <TriggerClick Handler="clearFilter2();" />
+                                                            </Listeners>
+                                                        </ext:TriggerField>
+                                                    </Items>
+                                                </ext:Toolbar>
+                                            </TopBar>
+                                            <Listeners>
+                                                <ItemClick Handler="if (record.data.href) { e.stopEvent(); loadPage(#{Pages}, record); }" />
+                                            </Listeners>
+                                        </ext:TreePanel>
+                                    </Items>
+                                </ext:Panel>
                                 <ext:Panel ID="Panel3" runat="server" Title="Jobs" Border="false" BodyPadding="6"
-                                    Icon="FolderGo">
+                                    Icon="Building">
                                     <Items>
                                         <ext:TreePanel ID="TreePanel1" runat="server" Height="300" Width="250" UseArrows="true">
                                             <TopBar>
@@ -100,48 +134,18 @@
                                 </ext:Panel>
                                 <ext:Panel ID="Panel1" runat="server" Title="Dashboard" Border="false" BodyPadding="6"
                                     Icon="Table" Html="West" />
-                                <ext:Panel ID="Panel12" runat="server" Title="Jobs" Border="false" BodyPadding="6"
-                                    Icon="FolderGo" Html="West" />
                                 <ext:Panel ID="Panel13" runat="server" Title="Infrastructure" Border="false" BodyPadding="6"
-                                    Icon="FolderGo" Html="West" />
-                                <ext:Panel ID="Panel14" runat="server" Title="Organizations" Border="false" BodyPadding="6"
-                                    Icon="FolderGo" Html="West">
-                                    <Items>
-                                        <ext:TreePanel runat="server" UseArrows="true">
-                                            <Root>
-                                                <ext:Node Text="Dashboard">
-                                                    <Children>
-                                                        <ext:Node Text="Organizations">
-                                                            <Children>
-                                                                <ext:Node Text="All" Href="~/ExtForms/Dashboard.aspx" />
-                                                                <ext:Node Text="Organization1" />
-                                                                <ext:Node Text="Organization2" />
-                                                            </Children>
-                                                        </ext:Node>
-                                                    </Children>
-                                                </ext:Node>
-                                            </Root>
-                                            <Listeners>
-                                                <ItemClick Handler="if (record.data.href) { e.stopEvent(); loadPage(#{Pages}, record); }" />
-                                            </Listeners>
-                                        </ext:TreePanel>
-                                    </Items>
+                                    Icon="Brick" Html="West">
                                 </ext:Panel>
                                 <ext:Panel ID="Panel15" runat="server" Title="Settings and options" Border="false"
-                                    BodyPadding="6" Icon="FolderGo" Html="West" />
+                                    BodyPadding="6" Icon="Cog" Html="West" />
                                 <ext:Panel ID="Panel16" runat="server" Title="Security" Border="false" BodyPadding="6"
-                                    Icon="FolderGo" Html="West" />
+                                    Icon="Lock" Html="West" />
                             </Items>
                         </ext:Panel>
                         <ext:TabPanel ID="Pages" runat="server" Region="Center" Icon="Server" Title="Job details" />
-                        <%--<ext:TabPanel ID="PagesJob" runat="server" Region="Center" Icon="Server" Title="Job details" />--%>
-                        <%-- <ext:TabStrip ID="tabStrip" runat="server" Region="Center" Icon="Server" Title="Job details">
-                            <Items>
-                                <ext:Tab Text="Summary" ActionItemID="elm1" />
-                                <ext:Tab Text="Virtual Machines" ActionItemID="elm2" />
-                                <ext:Tab Text="History" ActionItemID="elm3" />
-                            </Items>
-                        </ext:TabStrip>--%>
+                        <ext:Panel ID="Panel4" runat="server" Region="South" Title="Security" Border="false"
+                            BodyPadding="6" Icon="FolderGo" />
                     </Items>
                 </ext:Viewport>
             </div>
@@ -149,6 +153,8 @@
         </form>
     </div>
     <div id="elm2">
+        <asp:ContentPlaceHolder ID="holder1" runat="server">
+        </asp:ContentPlaceHolder>
         test</div>
 </body>
 </html>

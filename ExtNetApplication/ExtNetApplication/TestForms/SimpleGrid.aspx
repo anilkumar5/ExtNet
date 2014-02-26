@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" %>
+﻿<%@ Page Language="C#" CodeBehind="SimpleGrid.aspx.cs" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
-
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -51,18 +50,16 @@
         }
     }
 </script>
-
 <!DOCTYPE html>
-
 <html>
 <head id="Head1" runat="server">
     <title>Simple Array Grid - Ext.NET Examples</title>
-        <style>
-        .x-grid-row-over .x-grid-cell-inner {
-            font-weight : bold;
+    <style>
+        .x-grid-row-over .x-grid-cell-inner
+        {
+            font-weight: bold;
         }
     </style>
-
     <script>
         var template = '<span style="color:{0};">{1}</span>';
 
@@ -77,15 +74,9 @@
 </head>
 <body>
     <ext:ResourceManager ID="ResourceManager1" runat="server" />
-    
-    <h1>Simple Array Grid</h1>
-    
-    <ext:GridPanel 
-        ID="GridPanel1"
-        runat="server" 
-        Title="Array Grid" 
-        Width="600" 
-        Height="350">
+    <h1>
+        Simple Array Grid</h1>
+    <ext:GridPanel ID="GridPanel1" runat="server" Title="Array Grid" Width="600" Height="350">
         <Store>
             <ext:Store ID="Store1" runat="server">
                 <Model>
@@ -94,7 +85,7 @@
                             <ext:ModelField Name="company" />
                             <ext:ModelField Name="price" Type="Float" />
                             <ext:ModelField Name="change" Type="Float" />
-                          <%--  <ext:ModelField Name="pctChange" Type="Float" />
+                            <%--  <ext:ModelField Name="pctChange" Type="Float" />
                             <ext:ModelField Name="lastChange" Type="Date" DateFormat="M/d hh:mmtt" />--%>
                         </Fields>
                     </ext:Model>
@@ -104,18 +95,18 @@
         <ColumnModel>
             <Columns>
                 <ext:Column ID="Column1" runat="server" Text="Job" DataIndex="company" Flex="1" />
-                <ext:Column ID="Column2" runat="server" Text="CRP Actual" DataIndex="price">                  
+                <ext:Column ID="Column2" runat="server" Text="CRP Actual" DataIndex="price">
                     <Renderer Format="UsMoney" />
                 </ext:Column>
                 <ext:Column ID="Column3" runat="server" Text="RT Actual" DataIndex="change">
                     <Renderer Fn="change" />
                 </ext:Column>
-               <%-- <ext:Column ID="Column4" runat="server" Text="Change" DataIndex="pctChange">
+                <%-- <ext:Column ID="Column4" runat="server" Text="Change" DataIndex="pctChange">
                     <Renderer Fn="pctChange" />
                 </ext:Column>
                 <ext:DateColumn ID="DateColumn1" runat="server" Text="Last Updated" DataIndex="lastChange" />--%>
-            </Columns>            
-        </ColumnModel>       
+            </Columns>
+        </ColumnModel>
         <SelectionModel>
             <ext:RowSelectionModel ID="RowSelectionModel1" runat="server" />
         </SelectionModel>
@@ -127,7 +118,5 @@
             </ext:Toolbar>
         </BottomBar>
     </ext:GridPanel>
-
-    
 </body>
 </html>

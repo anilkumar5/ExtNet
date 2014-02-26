@@ -78,12 +78,12 @@
             <Html>
                 <div id="items-ct">
 								<div class="group-header">
-										<h2><div>Menu</div></h2>
+										<h2><div>{Title}</div></h2>
 										<dl>
-											<tpl>
+											<tpl for=".">
 												<div class="item-wrap">
 													<div>
-														<H6>Title</H6> 
+														<H6>{Title}</H6> 
                                                         
 													</div>
 												</div>
@@ -98,7 +98,7 @@
 											<tpl>
 												<div class="item-wrap">
 													<div>
-														<H6>Title</H6> 
+														<H6>{Title}</H6> 
                                                         
 													</div>
 												</div>

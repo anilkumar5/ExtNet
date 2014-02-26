@@ -184,6 +184,51 @@ namespace ExtNetApplication.ExtForms {
         protected global::Ext.Net.Panel Panel2;
         
         /// <summary>
+        /// Panel14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Panel Panel14;
+        
+        /// <summary>
+        /// TreePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TreePanel TreePanel2;
+        
+        /// <summary>
+        /// Toolbar4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Toolbar Toolbar4;
+        
+        /// <summary>
+        /// ToolbarTextItem2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.ToolbarTextItem ToolbarTextItem2;
+        
+        /// <summary>
+        /// TriggerField2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.TriggerField TriggerField2;
+        
+        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
@@ -238,15 +283,6 @@ namespace ExtNetApplication.ExtForms {
         protected global::Ext.Net.Panel Panel1;
         
         /// <summary>
-        /// Panel12 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Panel Panel12;
-        
-        /// <summary>
         /// Panel13 control.
         /// </summary>
         /// <remarks>
@@ -254,15 +290,6 @@ namespace ExtNetApplication.ExtForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Panel Panel13;
-        
-        /// <summary>
-        /// Panel14 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Panel Panel14;
         
         /// <summary>
         /// Panel15 control.
@@ -290,5 +317,23 @@ namespace ExtNetApplication.ExtForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.TabPanel Pages;
+        
+        /// <summary>
+        /// Panel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Panel Panel4;
+        
+        /// <summary>
+        /// holder1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder holder1;
     }
 }

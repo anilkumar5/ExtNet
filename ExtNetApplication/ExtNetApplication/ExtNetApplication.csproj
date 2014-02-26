@@ -84,20 +84,32 @@
     <Content Include="App_Readme\Transformer.NET\LICENSE.txt" />
     <Content Include="App_Readme\Transformer.NET\README.txt" />
     <Content Include="Ext.NET.Default.aspx" />
+    <Content Include="ExtForms\Account.aspx" />
+    <Content Include="ExtForms\ChangePassword.aspx" />
     <Content Include="ExtForms\Dashboard.aspx" />
+    <Content Include="ExtForms\Login.aspx" />
+    <Content Include="ExtForms\ScheduledTasks.aspx" />
+    <Content Include="ExtForms\RPO_RTO.aspx" />
+    <Content Include="Implementation\AllControls.aspx" />
+    <Content Include="RemoteServices\ValidationService.asmx" />
+    <Content Include="Resources\CompanyDb.xml" />
     <Content Include="Styles\Master.css" />
     <Content Include="TestForms\FieldContainer.aspx" />
+    <Content Include="TestForms\FormValidate.aspx" />
     <Content Include="TestForms\GridArrayWithPaging.aspx" />
     <Content Include="ExtForms\JobsData.aspx" />
-    <Content Include="ExtForms\PieChart.aspx" />
     <Content Include="ExtForms\TabPanel.aspx" />
     <Content Include="ExtForms\TreePanel.aspx" />
-    <Content Include="ExtForms\WebForm2.aspx" />
-    <Content Include="Resources\DashboardSchema.xml" />
+    <Content Include="ExtForms\Home.aspx" />
+    <Content Include="Resources\DashboardSchema.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\ext.js" />
     <Content Include="Scripts\Master.js" />
     <Content Include="TestForms\Css\TestSite.css" />
     <Content Include="TestForms\DataViewGrouping.aspx" />
+    <Content Include="Implementation\GridView.aspx" />
+    <Content Include="TestForms\GridWithRowEditing.aspx" />
     <Content Include="TestForms\OrigionalHeader.aspx" />
     <Content Include="TestForms\SearchFilter.aspx" />
     <Content Include="Styles\Site.css" />
@@ -112,9 +124,11 @@
     <Content Include="TestForms\TestForm.aspx" />
     <Content Include="TestForms\ToolbarWithMenus.aspx" />
     <Content Include="TestForms\ToolTipChart.aspx" />
-    <Content Include="UserControl\LayoutBody.ascx" />
-    <Content Include="UserControl\LeftMenu.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="UserControls\LayoutBody.ascx" />
+    <Content Include="UserControls\LeftMenu.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -165,6 +179,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ExtForms\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtForms\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtForms\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExtForms\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,12 +207,56 @@
     <Compile Include="ExtForms\ExtMaster.Master.designer.cs">
       <DependentUpon>ExtMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="ExtForms\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtForms\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\ScheduledTasks.aspx.cs">
+      <DependentUpon>ScheduledTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtForms\ScheduledTasks.aspx.designer.cs">
+      <DependentUpon>ScheduledTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtForms\RPO_RTO.aspx.cs">
+      <DependentUpon>RPO_RTO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtForms\RPO_RTO.aspx.designer.cs">
+      <DependentUpon>RPO_RTO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Implementation\AllControls.aspx.cs">
+      <DependentUpon>AllControls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Implementation\AllControls.aspx.designer.cs">
+      <DependentUpon>AllControls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\RpoRto.cs" />
+    <Compile Include="Models\ScheduleTasks.cs" />
+    <Compile Include="RemoteServices\ValidationService.asmx.cs">
+      <DependentUpon>ValidationService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\Account.cs" />
+    <Compile Include="Services\Deserialize_Xml_Linq.cs" />
     <Compile Include="TestForms\FieldContainer.aspx.cs">
       <DependentUpon>FieldContainer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TestForms\FieldContainer.aspx.designer.cs">
       <DependentUpon>FieldContainer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\FormValidate.aspx.cs">
+      <DependentUpon>FormValidate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestForms\FormValidate.aspx.designer.cs">
+      <DependentUpon>FormValidate.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestForms\GridArrayWithPaging.aspx.cs">
       <DependentUpon>GridArrayWithPaging.aspx</DependentUpon>
@@ -200,13 +272,6 @@
     <Compile Include="ExtForms\JobsData.aspx.designer.cs">
       <DependentUpon>JobsData.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExtForms\PieChart.aspx.cs">
-      <DependentUpon>PieChart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ExtForms\PieChart.aspx.designer.cs">
-      <DependentUpon>PieChart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ExtForms\TabPanel.aspx.cs">
       <DependentUpon>TabPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,12 +286,12 @@
     <Compile Include="ExtForms\TreePanel.aspx.designer.cs">
       <DependentUpon>TreePanel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExtForms\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="ExtForms\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExtForms\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="ExtForms\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -238,6 +303,20 @@
     </Compile>
     <Compile Include="TestForms\DataViewGrouping.aspx.designer.cs">
       <DependentUpon>DataViewGrouping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Implementation\GridView.aspx.cs">
+      <DependentUpon>GridView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Implementation\GridView.aspx.designer.cs">
+      <DependentUpon>GridView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestForms\GridWithRowEditing.aspx.cs">
+      <DependentUpon>GridWithRowEditing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestForms\GridWithRowEditing.aspx.designer.cs">
+      <DependentUpon>GridWithRowEditing.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestForms\OrigionalHeader.aspx.cs">
       <DependentUpon>OrigionalHeader.aspx</DependentUpon>
@@ -303,18 +382,18 @@
     <Compile Include="TestForms\ToolTipChart.aspx.designer.cs">
       <DependentUpon>ToolTipChart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\LayoutBody.ascx.cs">
+    <Compile Include="UserControls\LayoutBody.ascx.cs">
       <DependentUpon>LayoutBody.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\LayoutBody.ascx.designer.cs">
+    <Compile Include="UserControls\LayoutBody.ascx.designer.cs">
       <DependentUpon>LayoutBody.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\LeftMenu.ascx.cs">
+    <Compile Include="UserControls\LeftMenu.ascx.cs">
       <DependentUpon>LeftMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControl\LeftMenu.ascx.designer.cs">
+    <Compile Include="UserControls\LeftMenu.ascx.designer.cs">
       <DependentUpon>LeftMenu.ascx</DependentUpon>
     </Compile>
   </ItemGroup>

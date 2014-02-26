@@ -131,7 +131,7 @@
                         <Items>
                             <ext:Chart ID="Chart2" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store2" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store2" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model2" runat="server">
@@ -225,7 +225,7 @@
                         <Items>
                             <ext:Chart ID="Chart3" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store4" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store4" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model4" runat="server">
@@ -274,7 +274,7 @@
                         <Items>
                             <ext:Chart ID="Chart4" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store5" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store5" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model5" runat="server">
@@ -329,7 +329,7 @@
                         <Items>
                             <ext:Chart ID="Chart5" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store6" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store6" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model6" runat="server">
@@ -378,7 +378,7 @@
                         <Items>
                             <ext:Chart ID="Chart6" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store7" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store7" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model7" runat="server">

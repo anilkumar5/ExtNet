@@ -15,16 +15,8 @@ E:\Anil\ExtNetApplication\ExtNetApplication\obj\Debug\ExtNetApplication.dll
 E:\Anil\ExtNetApplication\ExtNetApplication\obj\Debug\ExtNetApplication.pdb
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\ExtNetApplication.dll
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\ExtNetApplication.pdb
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Ext.Net.dll
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Ext.Net.Utilities.dll
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Microsoft.Web.Infrastructure.dll
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Newtonsoft.Json.dll
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Transformer.NET.dll
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\WebActivatorEx.dll
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Ext.Net.xml
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Ext.Net.Utilities.xml
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Newtonsoft.Json.xml
-E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Transformer.NET.xml
+E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\bin\Microsoft.Web.Infrastructure.xml
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\obj\Debug\ResolveAssemblyReference.cache
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\obj\Debug\ExtNetApplication.dll
 E:\Anil\SampleApp\trunk\ExtNetApplication\ExtNetApplication\obj\Debug\ExtNetApplication.pdb

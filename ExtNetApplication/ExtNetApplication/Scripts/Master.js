@@ -85,3 +85,39 @@ var change = function (value) {
 var pctChange = function (value) {
     return Ext.String.format(template, (value > 0) ? "green" : "red", value + "%");
 };
+
+
+
+
+var filterTree2 = function (tf, e) {
+
+    var tree = App.TreePanel2,
+                text = tf.getRawValue();
+
+    tree.clearFilter();
+
+    if (Ext.isEmpty(text, false)) {
+        return;
+    }
+
+    if (e.getKey() === Ext.EventObject.ESC) {
+        clearFilter2();
+    } else {
+        var re = new RegExp(".*" + text + ".*", "i");
+
+        tree.filterBy(function (node) {
+            return re.test(node.data.text);
+        });
+    }
+};
+
+//For Clear the left tree
+var clearFilter2 = function () {
+
+    var field = App.TriggerField2,
+                tree = App.TreePanel2;
+
+    field.setValue("");
+    tree.clearFilter(true);
+    tree.getView().focus();
+};

@@ -2,14 +2,14 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="" title="Folder1"  description="">
     <siteMapNode url="" title="Jobs"  description="">
-      <siteMapNode url="~/TestForms/OrigionalHeader.aspx" title="OrigionalHeader"  description="" />
-      <siteMapNode url="~/TestForms/SearchFilter.aspx" title="SearchTree"  description="" />
       <siteMapNode url="~/ExtForms/JobsData.aspx" title="Jobs"  description="" />
+      <siteMapNode url="~/ExtForms/ScheduledTasks.aspx" title="Schedule Tasks"  description="" />
+      <siteMapNode url="~/ExtForms/RPO_RTO.aspx" title="RPO/RTO Settings"  description="" />
     </siteMapNode>
-    <siteMapNode url="" title="Jobs1"  description="">
-      <siteMapNode url="~/TestForms/OrigionalHdeader.aspx" title="OrigionalHeader"  description="" />
-      <siteMapNode url="~/TestForms/SearchFiltder.aspx" title="SearchTree"  description="" />
-      <siteMapNode url="~/ExtForms/JobsDatsa.aspx" title="Jobs"  description="" />
+    <siteMapNode url="" title="Dashboard"  description="">
+      <siteMapNode url="" title="Organizations"  description="">
+        <siteMapNode url="~/ExtForms/Dashboard.aspx" title="All"  description="" />
+      </siteMapNode>
     </siteMapNode>
   </siteMapNode>
 </siteMap>

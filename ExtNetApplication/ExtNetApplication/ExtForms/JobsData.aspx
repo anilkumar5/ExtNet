@@ -174,7 +174,7 @@
                         <Items>
                             <ext:Chart ID="Chart2" runat="server" InsetPadding="30">
                                 <Store>
-                                    <ext:Store ID="Store3" runat="server" Data="<%# ExtNetApplication.Services.Products.GetProducts() %>"
+                                    <ext:Store ID="Store3" runat="server" Data="<%# ExtNetApplication.Services.Products.GetBarProducts() %>"
                                         AutoDataBind="true">
                                         <Model>
                                             <ext:Model ID="Model3" runat="server">

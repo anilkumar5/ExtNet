@@ -103,6 +103,15 @@ namespace ExtNetApplication.ExtForms {
         protected global::Ext.Net.MenuItem MenuItem4;
         
         /// <summary>
+        /// MenuItem5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem MenuItem5;
+        
+        /// <summary>
         /// Toolbar2 control.
         /// </summary>
         /// <remarks>

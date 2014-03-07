@@ -13,7 +13,7 @@ namespace ExtNetApplication.ExtForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Login login = new Login();
         }
 
         [DirectMethod]
@@ -57,7 +57,13 @@ namespace ExtNetApplication.ExtForms
         public void RedirectToRegister()
         {
             Response.Redirect("/ExtForms/Account.aspx");
-            
+
         }
+    }
+
+    public partial class Login
+    {
+        public string UserName { get; set; }
+        public string UserAnil { get; set; }
     }
 }

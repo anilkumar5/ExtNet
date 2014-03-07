@@ -23,6 +23,21 @@ namespace ExtNetApplication.ExtForms
 
             }
         }
+
+        protected void IsValidPassword(object sender, RemoteValidationEventArgs e)
+        {
+            TextField textField = (TextField)sender;
+            if (string.IsNullOrEmpty(textField.Text))
+            {
+                e.Success = false;
+                e.ErrorMessage = "You forget to enter your old password?";
+            }
+            else
+            {
+                e.Success = true;
+            }
+        }
+
         protected void MatchPassword(object sender, RemoteValidationEventArgs e)
         {
             TextField textField = (TextField)sender;
@@ -33,17 +48,53 @@ namespace ExtNetApplication.ExtForms
             }
             else
             {
-                if (textField.Text == this.txtNewPassword.Text)
+                if (!string.IsNullOrEmpty(txtNewPassword.Text))
                 {
-                    e.Success = true;
+                    if (txtNewPassword.Text == txtConfirmNewPassword.Text)
+                    {
+                        e.Success = true;
+                    }
+                    else
+                    {
+                        e.Success = false;
+                        e.ErrorMessage = "New password and confirm new password must match.";
+                    }
                 }
                 else
                 {
                     e.Success = false;
-                    e.ErrorMessage = "Password and cofirm password must match";
+                    e.ErrorMessage = "Please enter new pasword first!";
                 }
-
             }
         }
+
+        [DirectMethod]
+        public void ChangePasswords()
+        {
+            if (!string.IsNullOrEmpty(Convert.ToString(Session["User"])))
+            {
+                MembershipUser user = Membership.GetUser(Session["User"].ToString(), false);
+                if (!string.IsNullOrEmpty(txtOldPassword.Text) && !string.IsNullOrEmpty(txtNewPassword.Text))
+                {
+                    if (user.ChangePassword(txtOldPassword.Text, txtNewPassword.Text))
+                    {
+                        Response.Redirect("/ExtForms/Home.aspx");
+                    }
+                    else
+                    {
+                        this.lblError.Text = "Unable to change password";
+                    }
+                }
+                else
+                {
+                    this.lblError.Text = "Please fill all fields.";
+                }
+            }
+            else
+            {
+                Response.Redirect("/ExtForms/Login.aspx");
+            }
+        }
+
     }
 }

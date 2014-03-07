@@ -127,6 +127,10 @@ namespace ExtNetApplication.ExtForms
                 ExtNetApplication.Services.Account.Logout();
                 Response.Redirect("/ExtForms/Login.aspx");
             }
+            else if (menuItem == "ChangePassword")
+            {
+                Response.Redirect("/ExtForms/ChangePassword.aspx");
+            }
         }
     }
 }

@@ -22,6 +22,15 @@ namespace ExtNetApplication.ExtForms {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// formPanelOuter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.FormPanel formPanelOuter;
+        
+        /// <summary>
         /// txtOldPassword control.
         /// </summary>
         /// <remarks>
@@ -40,21 +49,39 @@ namespace ExtNetApplication.ExtForms {
         protected global::Ext.Net.TextField txtNewPassword;
         
         /// <summary>
-        /// txtConfirmPassword control.
+        /// txtConfirmNewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField txtConfirmPassword;
+        protected global::Ext.Net.TextField txtConfirmNewPassword;
         
         /// <summary>
-        /// btnChangePassword control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button btnChangePassword;
+        protected global::Ext.Net.Label lblError;
+        
+        /// <summary>
+        /// ctl162 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button ctl162;
+        
+        /// <summary>
+        /// ctl164 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button ctl164;
     }
 }

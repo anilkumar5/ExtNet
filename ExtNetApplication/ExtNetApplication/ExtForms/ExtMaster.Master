@@ -43,6 +43,11 @@
                                         <Click OnEvent="ClickMenu" />
                                     </DirectEvents>
                                 </ext:MenuItem>
+                                <ext:MenuItem ID="MenuItem5" Text="ChangePassword" runat="server">
+                                    <DirectEvents>
+                                        <Click OnEvent="ClickMenu" />
+                                    </DirectEvents>
+                                </ext:MenuItem>
                             </Items>
                             <%--<Listeners>
                             <Click Handler="ClickMenu" />
